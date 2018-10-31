@@ -3,6 +3,8 @@
 
 #include <list>
 #include <vector>
+#include<stdexcept>
+
 using namespace std;
 
 template <class T>
@@ -57,16 +59,36 @@ void LinkedList<T>::add(T element)
 template <class T>
 T LinkedList<T>::get(int index) const
 {
-    std::list<T>::const_iterator it = theList.cbegin(); 
+    if(theList.size()==0)
+    {
+	throw std::invalid_argument("the list is empty"); 
+    }    
+
+    if(index>=theList.size())
+    {	
+	throw std::invalid_argument("the index is out of range");
+    }
+
+    typename std::list<T>::const_iterator it = theList.cbegin(); 
     advance (it,index);
     return *it;
 }
 
 template <class T>
-T LikedList<T>::remove(int index)
+T LinkedList<T>::remove(int index)
 {
-    std::list<T>const_iterator it = theList.cbegin();
-    adcance (it,index);
+    if(theList.size()==0)
+    {
+	throw std::invalid_argument("the list is empty");
+    }
+
+    if(index>=theList.size)
+    {
+	throw std::invalid_argument("the index is out of range");
+    }
+    
+    typename std::list<T>::const_iterator it = theList.cbegin();
+    advance (it,index);
     T temp = *it;
     theList.erase(it);
     return temp;
@@ -76,12 +98,19 @@ T LikedList<T>::remove(int index)
 template <class T>
 std::vector<T> LinkedList<T>::toArray() const
 {
-    std::vecotr temp = 
+    typename std::list<T>::const_iterator it = theList.cbegin();
+    std::vector<T> temp (it.cbegin(), it.cend());
+    return temp;
 
 }
 
 template <class T>
-LinkedList<T>& LinkedList<T>::operator+=(const T& item){}
+LinkedList<T>& LinkedList<T>::operator+=(const T& item)
+{
+    LinkedList<T> temp (*this);
+    temp.add(item);
+    return temp;
+}
 
 
 
