@@ -3,7 +3,7 @@
 
 #include <list>
 #include <vector>
-#include<stdexcept>
+#include <stdexcept>
 
 using namespace std;
 
@@ -82,7 +82,7 @@ T LinkedList<T>::remove(int index)
 	throw std::invalid_argument("the list is empty");
     }
 
-    if(index>=theList.size)
+    if(index>=theList.size())
     {
 	throw std::invalid_argument("the index is out of range");
     }
@@ -111,12 +111,6 @@ LinkedList<T>& LinkedList<T>::operator+=(const T& item)
     temp.add(item);
     return temp;
 }
-
-
-
-
-
-
 
 
 #endif
