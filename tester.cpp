@@ -16,11 +16,11 @@ int main(){
 
     cout << "Default constructor:" << endl;
     cout << "LinkedList<int> llist1" << endl;
-    LinkedList<int> llist1();
+    LinkedList<int> llist1;
 
     cout << endl << "Copy constructor:" << endl;
     cout << "LinkedList<int> llist2(&llist1)" << endl;
-    LinkedList<int> llist2(&llist1);
+    LinkedList<int> llist2(llist1);
 
     //testing getter method for empty list
     cout << "*****************************************" << endl;
@@ -28,7 +28,7 @@ int main(){
     cout << "*****************************************" << endl;
     cout << "llist1.get(3)" << endl;
     try{
-        llist1.get(3);    
+        llist1.get(3);   
     }
     catch(const exception& error){
         cerr << error.what() << endl;
@@ -46,6 +46,7 @@ int main(){
     llist1.add(1);
     llist1.add(2);
     llist1.add(3);
+
     
     //testing getter method
     cout << "*****************************************" << endl;
@@ -79,13 +80,13 @@ int main(){
   }
     cout << "[Expected: the index is out of range]" << endl << endl;
 
-    cout << "Remove the first element" << llist1.remove(0) << "[Expected: 1]" << endl;
+    cout << "Remove the first element " << llist1.remove(0) << "[Expected: 1]" << endl;
     cout << "Now the size is  " << llist1.size() << "[Expected: 2]" << endl;
 
-    cout << "Remove the second element" << llist1.remove(1) << "[Expected: 2]" << endl;
+    cout << "Remove the second element " << llist1.remove(0) << "[Expected: 2]" << endl;
     cout << "Now the size is  " << llist1.size() << "[Expected: 1]" << endl;
 
-    cout << "Remove the third element" << llist1.remove(2) << "[Expected: 3]" << endl;
+    cout << "Remove the third element " << llist1.remove(0) << "[Expected: 3]" << endl;
     cout << "Now the size is  " << llist1.size() << "[Expected: 0]" << endl << endl;    
 
     cout << "Remove from an empty list" << endl;
@@ -128,7 +129,7 @@ int main(){
     
     int a = 3;
     llist2 += 3;
-    cout << "Size of llist2 after += 3: " << llist2.size() << "[Expected: 6]" << endl;
+    cout << "Size of llist2 after += 3: " << llist2.size() << "[Expected: 4]" << endl;
 
 
 

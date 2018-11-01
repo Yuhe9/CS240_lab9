@@ -38,7 +38,7 @@ LinkedList<T>::LinkedList()
 template <class T>
 LinkedList<T>::LinkedList(const LinkedList<T>& other)
 {
-    std::list<T> theList (other);
+    this->theList = other.theList;
 }
 
 template <class T>
@@ -59,7 +59,7 @@ void LinkedList<T>::add(T element)
 template <class T>
 T LinkedList<T>::get(int index) const
 {
-    if(theList.size()==0)
+    if(theList.empty())
     {
 	throw std::invalid_argument("the list is empty"); 
     }    
@@ -69,7 +69,7 @@ T LinkedList<T>::get(int index) const
 	throw std::invalid_argument("the index is out of range");
     }
 
-    typename std::list<T>::const_iterator it = theList.cbegin(); 
+    typename std::list<T>::const_iterator it = theList.begin(); 
     advance (it,index);
     return *it;
 }
@@ -77,7 +77,7 @@ T LinkedList<T>::get(int index) const
 template <class T>
 T LinkedList<T>::remove(int index)
 {
-    if(theList.size()==0)
+    if(theList.empty())
     {
 	throw std::invalid_argument("the list is empty");
     }
@@ -86,11 +86,10 @@ T LinkedList<T>::remove(int index)
     {
 	throw std::invalid_argument("the index is out of range");
     }
-    
-    typename std::list<T>::const_iterator it = theList.cbegin();
-    advance (it,index);
-    T temp = *it;
-    theList.erase(it);
+    typename std::list<T>::iterator it = theList.begin();
+    advance(it, index); 
+    T temp = this->get(index);
+    this->theList.erase(it);
     return temp;
 
 }
@@ -98,8 +97,7 @@ T LinkedList<T>::remove(int index)
 template <class T>
 std::vector<T> LinkedList<T>::toArray() const
 {
-    typename std::list<T>::const_iterator it = theList.cbegin();
-    std::vector<T> temp (it.cbegin(), it.cend());
+    std::vector<T> temp (this->theList.begin(),this->theList.end());
     return temp;
 
 }
@@ -107,9 +105,8 @@ std::vector<T> LinkedList<T>::toArray() const
 template <class T>
 LinkedList<T>& LinkedList<T>::operator+=(const T& item)
 {
-    LinkedList<T> temp (*this);
-    temp.add(item);
-    return temp;
+    this->add(item);
+    return *this;
 }
 
 
