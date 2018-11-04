@@ -4,7 +4,8 @@
 #include <list>
 #include <vector>
 #include <stdexcept>
-
+#include <iostream>
+#include <sstream>
 using namespace std;
 
 template <class T>
@@ -61,12 +62,14 @@ T LinkedList<T>::get(int index) const
 {
     if(theList.empty())
     {
-	throw std::invalid_argument("the list is empty"); 
+	throw std::invalid_argument("invalid attempt to retrieve from empty list"); 
     }    
 
     if(index>=theList.size())
-    {	
-	throw std::invalid_argument("the index is out of range");
+    {   
+	std::stringstream ss;
+	ss << "invalid index: " << index << "    list size: " << this->size();
+	throw invalid_argument(ss.str());
     }
 
     typename std::list<T>::const_iterator it = theList.begin(); 
@@ -79,12 +82,14 @@ T LinkedList<T>::remove(int index)
 {
     if(theList.empty())
     {
-	throw std::invalid_argument("the list is empty");
+	throw std::invalid_argument("invalid attempt to retrieve from empty list");
     }
 
     if(index>=theList.size())
     {
-	throw std::invalid_argument("the index is out of range");
+        std::stringstream ss;
+        ss << "invalid index: " << index << "    list size: " << this->size();
+        throw invalid_argument(ss.str());
     }
     typename std::list<T>::iterator it = theList.begin();
     advance(it, index); 

@@ -31,9 +31,9 @@ int main(){
         llist1.get(3);   
     }
     catch(const exception& error){
-        cerr << error.what() << endl;
+        cerr <<  error.what() << endl;
     }
-    cout << "[Expected: the list is empty]" << endl << endl;
+    cout << "[Expected: invalid attemp to retrieve from empty list]" << endl << endl;
 
 
     //testing setter method
@@ -64,8 +64,17 @@ int main(){
     catch (const exception& error){
         cerr << error.what() << endl;
   }
-    cout << "[Expected: the index is out of range]" << endl;
+    cout << "[Expected: invalid index: 5  list size: 3]" << endl;
     
+    cout << "llist1.get(-1)" << endl;
+    try{
+        llist1.get(-1);
+    }
+    catch (const exception& error){
+        cerr << error.what() << endl;
+    }
+    cout << "[Expected: invalid index: -1  list size: 3]" << endl;
+
     //testing remove method
     cout << "*****************************************" << endl;
     cout << "Testing remove method" << endl;
@@ -78,7 +87,7 @@ int main(){
     catch (const exception& error){
         cerr << error.what() << endl;
   }
-    cout << "[Expected: the index is out of range]" << endl << endl;
+    cout << "[Expected: invalid index: 5  list size: 3]" << endl << endl;
 
     cout << "Remove the first element " << llist1.remove(0) << "[Expected: 1]" << endl;
     cout << "Now the size is  " << llist1.size() << "[Expected: 2]" << endl;
@@ -96,7 +105,7 @@ int main(){
     catch (const exception& error){
         cerr << error.what() << endl;
     }
-    cout << "[Expected: the list is empty]" << endl;    
+    cout << "[Expected: invalid attempt to retrieve from empty list]" << endl;    
    
 //testing size method
     cout << "*****************************************" << endl;
@@ -159,7 +168,7 @@ int main(){
    catch(const exception& error){
        cerr << error.what() << endl;
    }
-   cout << "[Expected: the list is empty]" << endl << endl;
+   cout << "[Expected: invalid attempt to retrieve from empty list]" << endl;
 
 //testing setter method
    cout << "*****************************************" << endl;
@@ -186,7 +195,7 @@ int main(){
    catch (const exception& error){
        cerr << error.what() << endl;
    }
-   cout << "[Expected: the index is out of range]" << endl;
+   cout << "[Expected: invalid indes: 5  list size: 2]" << endl;
    
 //Testing remove method
    cout << "*****************************************" << endl;
@@ -200,7 +209,7 @@ int main(){
    catch (const exception& error){
        cerr << error.what() << endl;
    }
-   cout << "[Expected: the index is out of range]" << endl << endl;
+   cout << "[Expected: invalid index: 5  list size: 2]" << endl << endl;
 
    cout << "Remove the first element " << clist1.remove(0) << "[Expected: a]" << endl;
    cout << "Now the size is  " << clist1.size() << "[Expected: 1]" << endl;
@@ -215,7 +224,7 @@ int main(){
     catch (const exception& error){
         cerr << error.what() << endl;
     }
-    cout << "[Expected: the list is empty]" << endl << endl;
+    cout << "[Expected: invalid attempt to retrieve from empty list]" << endl << endl;
 
 // testing size method
    cout << "*****************************************" << endl;
@@ -278,7 +287,7 @@ int main(){
     catch(const exception& error){
         cerr << error.what() << endl;
     }
-    cout << "[Expected: the list is empty]" << endl << endl;
+    cout << "[Expected: invalid attempt to retrieve from empty list]"<< endl;
 
 
     //testing setter method
@@ -308,7 +317,7 @@ int main(){
     catch (const exception& error){
         cerr << error.what() << endl;
   }
-    cout << "[Expected: the index is out of range]" << endl;
+    cout << "[Expected: invalid index: 5  list size: 2]" << endl;
     
     //testing remove method
     cout << "*****************************************" << endl;
@@ -322,7 +331,7 @@ int main(){
     catch (const exception& error){
         cerr << error.what() << endl;
   }
-    cout << "[Expected: the index is out of range]" << endl << endl;
+    cout << "[Expected: invalid index: 5  list size: 2]" << endl << endl;
 
     cout << "Remove the first element " << dlist1.remove(0) << "[Expected: 1.33]" << endl;
     cout << "Now the size is  " << dlist1.size() << "[Expected: 1]" << endl;
@@ -337,7 +346,7 @@ int main(){
     catch (const exception& error){
         cerr << error.what() << endl;
     }
-    cout << "[Expected: the list is empty]" << endl;    
+    cout << "[Expected: invalid attempt to retrieve from empty list" << endl;    
    
 //testing size method
     cout << "*****************************************" << endl;
