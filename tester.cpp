@@ -264,7 +264,7 @@ int main(){
     LinkedList<double> dlist1;
 
     cout << endl << "Copy constructor:" << endl;
-    cout << "LinkedList<int> llist2(&llist1)" << endl;
+    cout << "LinkedList<double> llist2(&llist1)" << endl;
     LinkedList<double> dlist2(dlist1);
 
     //testing getter method for empty list
@@ -285,8 +285,8 @@ int main(){
     cout << "*****************************************" << endl;
     cout << "Testing add method" << endl;
     cout << "*****************************************" << endl;
-    cout << "clist1.add(1)" << endl;
-    cout << "clist1.add(2)" << endl;
+    cout << "clist1.add(1.33)" << endl;
+    cout << "clist1.add(2.65)" << endl;
 
     dlist1.add(1.33);
     dlist1.add(2.65);
