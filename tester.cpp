@@ -354,7 +354,7 @@ int main(){
     cout << "*****************************************" << endl;
     cout << "size for dlist2: " << dlist2.size() << " [Expected: 0]"<< endl << endl;
     
-    cout << "add 3 elements 1 2 3 into llist2" << endl;
+    cout << "add 3 elements into llist2" << endl;
     dlist2.add(2.11);
     dlist2.add(3.000);
     dlist2.add(4.5);
